@@ -3,72 +3,61 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Analizamos JDcoin y MMLTI1 para distinguir narrativa, derechos económicos y control técnico. Una auditoría comienza por identificar qué estamos auditando.">
+<meta name="description" content="Seguimos un archivo desde sus bytes hasta su recuperación. Descubrimos por qué identificar, conservar y publicar son decisiones distintas.">
 <meta name="color-scheme" content="dark">
-<title>Lab 13 · Token Due Diligence | Web3 Labs</title>
+<title>Lab 15 · IPFS + Pinata | Web3 Labs</title>
 <link rel="stylesheet" href="style.css">
 <script type="module" src="script.js">
 </script>
 </head>
-<body class="lab-13">
+<body class="lab-15">
 <a class="skip-link" href="#introduccion">Saltar al contenido</a>
 <header class="navbar">
-<a class="brand" href="../index.html">DD<span class="brand-accent">/</span>TERMINAL</a>
+<a class="brand" href="../index.html">
+<span class="brand-orbit">◉</span> CONTENT / SPACE</a>
 <nav aria-label="Navegación del laboratorio">
 <a href="#desarrollo">Desarrollo</a>
 <a href="#interactivo">Explorar</a>
 <a href="#resultados">Resultados</a>
 <a href="README.md">README ↗</a>
 </nav>
-<span class="nav-code">L13 / S15</span>
+<span class="nav-code">L15 / S18</span>
 </header>
 <main>
 <header class="hero">
 <div class="hero-copy">
-<p class="eyebrow">LABORATORIO 13 <span>SESIÓN 15</span>
+<p class="eyebrow">LABORATORIO 15 <span>SESIÓN 18</span>
 </p>
-<h1>Detrás del ticker.<br>
-<em>Dentro del contrato.</em>
+<h1>El contenido<br>es la <em>dirección.</em>
 </h1>
-<p class="hero-description">Analizamos JDcoin y MMLTI1 para distinguir narrativa, derechos económicos y control técnico. Una auditoría comienza por identificar qué estamos auditando.</p>
+<p class="hero-description">Seguimos un archivo desde sus bytes hasta su recuperación. Descubrimos por qué identificar, conservar y publicar son decisiones distintas.</p>
 <div class="hero-meta">
-<span>JDcoin / TOHKN / ERC-3643</span>
+<span>IPFS / CIDv1 / Pinata / HTTP</span>
 <span>Informe académico interactivo</span>
 </div>
-<a class="hero-link" href="#interactivo">Abrir el panel de riesgos <span aria-hidden="true">↘</span>
+<a class="hero-link" href="#interactivo">Explorar la ruta del archivo <span aria-hidden="true">↘</span>
 </a>
 </div>
 <div class="hero-art">
-<div class="market-art">
-<div class="market-top">
-<span>ANÁLISIS DOCUMENTAL</span>
-<span class="live-dot">FUENTES PÚBLICAS</span>
+<div class="space-art">
+<div class="orbit orbit-one">
 </div>
-<div class="asset-row">
-<span>JDcoin</span>
-<strong>Identidad no resuelta</strong>
-<small>Contrato / red / ticker: no atribuibles</small>
+<div class="orbit orbit-two">
 </div>
-<div class="asset-row">
-<span>MMLTI1</span>
-<strong>Deuda tokenizada</strong>
-<small>Polygon · ERC-3643 · TOHKN</small>
+<div class="orbit orbit-three">
 </div>
-<svg viewBox="0 0 500 150" role="img" aria-label="Diagrama conceptual de rastreo de identidad a contrato">
-<defs>
-<pattern id="grid" width="40" height="30" patternUnits="userSpaceOnUse">
-<path d="M40 0H0V30" fill="none" stroke="#18314a"/>
-</pattern>
-</defs>
-<rect width="500" height="150" fill="url(#grid)"/>
-<path d="M15 120L80 120L80 95L160 95L160 60L260 60L260 35L480 35" fill="none" stroke="#a4ff49" stroke-width="3"/>
-<text x="20" y="142" fill="#9bb4c9" font-size="13">RUTA DOCUMENTAL · NO ES UNA COTIZACIÓN</text>
-</svg>
-<div class="market-bottom">No confundir transparencia con solvencia.</div>
+<div class="space-core">
+<span>JSON</span>
+<strong>CONTENT<br>ADDRESSED</strong>
+</div>
+<span class="satellite sat-a">CID</span>
+<span class="satellite sat-b">PIN</span>
+<span class="satellite sat-c">HTTP</span>
+<div class="space-caption">UNA IDENTIDAD · MÚLTIPLES UBICACIONES</div>
 </div>
 </div>
 <div class="hero-footer">
-<span>IDENTIDAD → CÓDIGO → MERCADO → DERECHOS</span>
+<span>CID + PIN + RESOLVE</span>
 <span>HTML · CSS · JavaScript</span>
 </div>
 </header>
@@ -93,15 +82,15 @@
 <span class="section-index">introduccion</span>
 <h2 id="introduccion-title">Introducción</h2>
 </div>
-<p>En este informe examinamos dos modelos que suelen aparecer juntos bajo la palabra tokenización, aunque representan relaciones económicas diferentes. Una memecoin obtiene gran parte de su atractivo de la coordinación social, la atención y la posibilidad de negociación. Un token de deuda representa un derecho de cobro definido por documentos y obligaciones de un emisor. El contrato registra operaciones, pero no reemplaza el análisis de liquidez, concentración ni capacidad de pago.</p>
-<p>Utilizamos JDcoin como referencia solicitada sin asignarle la información de otros activos llamados JD Coin, JDC o JD coin. El nombre por sí solo no identifica una cadena ni un contrato. Para MMLTI1 examinamos la ficha pública de TOHKN; sus declaraciones se citan como información del emisor y no como una auditoría independiente del despliegue. Este límite produce un resultado útil: una identidad ambigua impide convertir cifras de un buscador en hechos financieros.</p>
+<p>El almacenamiento convencional suele indicar dónde buscar un archivo: una ruta, un servidor y un nombre. Esa referencia puede conservarse aunque el contenido cambie. En almacenamiento por contenido, la identidad se vincula con una representación criptográfica de los bytes. Analizamos cómo esa diferencia permite verificar integridad y compartir datos sin depender de una única ubicación.</p>
+<p>Un venture necesita decidir qué publica y quién lo conserva antes de elegir un gateway. La descentralización de la resolución no vuelve privados los datos ni crea una obligación de permanencia. Desarrollamos una política aplicada a documentos públicos, registros operativos y secretos, y presentamos un cálculo local reproducible para distinguir el identificador de un servicio de almacenamiento.</p>
 </section>
 <section id="instrucciones" class="report-section instructions" aria-labelledby="instrucciones-title">
 <div class="section-heading">
 <span class="section-index">instrucciones</span>
 <h2 id="instrucciones-title">Instrucciones del laboratorio</h2>
 </div>
-<p>En este laboratorio trabajamos en Visual Studio Code para analizar la memecoin de referencia JDcoin frente a MMLTI1, emisión de deuda presentada por TOHKN, construyendo un informe web independiente con HTML, CSS y JavaScript. Comenzamos por establecer la identidad de cada activo mediante ticker, blockchain y contrato, evitando asociar a JDcoin datos de monedas homónimas cuando no existe una vinculación inequívoca. Examinamos las declaraciones públicas de la emisión regulada, su documentación DIR y el estándar anunciado, y explicamos cómo contrastarlas con código verificado, implementaciones de proxies, roles y eventos en exploradores blockchain. Organizamos la comparación de capitalización, liquidez, vendedores únicos durante veinticuatro horas, mecanismos de emisión, facultades administrativas, mint, pause y restricciones de transferencia, diferenciando información documental, capacidades de un estándar y comprobaciones del contrato concreto. Conservamos la rúbrica general original y distinguimos la rúbrica de tokens de diez puntos de S15, cuyos criterios requieren consultar ese documento y no se inventan; el gráfico muestra estados documentales sin scores. Implementamos un panel interactivo para interpretar riesgos de identidad, control, mercado y cumplimiento, junto con diagramas de lectura del contrato y una tabla comparativa. Cerramos el trabajo explicando las diferencias entre fair-launch y emisión regulada, sus límites económicos y técnicos, y entregamos la página navegable, sus archivos de estilo e interacción y un README que documenta metodología, resultados y aprendizajes.</p>
+<p>En este laboratorio trabajamos en Visual Studio Code para desarrollar un informe sobre almacenamiento descentralizado utilizando un archivo venture-hello.json sin datos personales y una política de almacenamiento aplicada a un venture. Definimos una representación exacta en UTF-8, calculamos su SHA-256 y construimos un CIDv1 con codec raw para un único bloque pequeño, dejando explícito que este cálculo local no equivale a una publicación en IPFS. Explicamos el procedimiento de incorporación del archivo con IPFS, la relación entre bloques, multihash y direccionamiento por contenido, y la necesidad de mantener parámetros consistentes para obtener identificadores reproducibles. Describimos cómo Pinata conserva una copia mediante pinning y cómo un gateway HTTP recupera contenido identificado por CID, diferenciando respuestas ilustrativas de una consulta realmente ejecutada. Implementamos una experiencia interactiva que recorre archivo, CID, Pinata y gateway, compara dos variantes predefinidas del JSON y verifica los bytes del archivo local recuperado. Elaboramos STORAGE.md con categorías de sensibilidad, responsables, durabilidad, revisión y eliminación, distinguiendo materiales apropiados para publicación pública de información que requiere almacenamiento convencional. Analizamos disponibilidad, persistencia, dependencia del proveedor y los límites de retirar copias distribuidas. Entregamos el HTML, CSS, JavaScript, JSON y README correspondientes, con diagramas, matriz de clasificación, resultados calculados en el navegador y conclusiones sobre integridad y gobierno de datos.</p>
 </section>
 <section id="objetivos" class="report-section " aria-labelledby="objetivos-title">
 <div class="section-heading">
@@ -110,16 +99,16 @@
 </div>
 <div class="concept-grid">
 <article class="concept-card">
-<h3>Identificar antes de medir</h3>
-<p>Relacionamos nombre comercial, ticker, red y dirección mediante fuentes concordantes. La ausencia de identidad se expresa como incertidumbre, no como un saldo de cero.</p>
+<h3>Identidad reproducible</h3>
+<p>Relacionamos bytes, codificación, hash, codec y CID. Comparamos una modificación mínima con el objeto original para observar cómo cambia la identidad.</p>
 </article>
 <article class="concept-card">
-<h3>Contrastar promesa y capacidad</h3>
-<p>Separamos lo declarado por una organización de lo permitido por su implementación. Examinamos quién puede cambiar reglas y bajo qué controles.</p>
+<h3>Disponibilidad operativa</h3>
+<p>Distinguimos un identificador válido de un archivo servido. Analizamos copias, pinning, financiación y dependencia de gateways.</p>
 </article>
 <article class="concept-card">
-<h3>Evaluar con el mismo criterio</h3>
-<p>Aplicamos idénticas preguntas a ambos casos, sin premiar popularidad ni suponer que un registro elimina el riesgo financiero.</p>
+<h3>Gobierno de publicación</h3>
+<p>Clasificamos contenidos según sensibilidad y durabilidad. Elegimos almacenamiento de acuerdo con el derecho a retirar datos y la finalidad del venture.</p>
 </article>
 </div>
 </section>
@@ -130,16 +119,20 @@
 </div>
 <div class="concept-grid">
 <article class="concept-card">
-<h3>Exploradores blockchain</h3>
-<p>Polygonscan y Etherscan permiten leer transacciones y contratos EVM. Solscan sirve para activos Solana si la identidad conduce a esa cadena; no trasladamos conceptos de ABI EVM automáticamente.</p>
+<h3>IPFS</h3>
+<p>Organiza y transfiere bloques identificados por contenido. El CID describe una representación y permite verificar el bloque que se recibe; no indica un servidor fijo.</p>
 </article>
 <article class="concept-card">
-<h3>ERC-20 y ERC-3643</h3>
-<p>ERC-20 describe una interfaz de tokens fungibles. ERC-3643 incorpora identidad y cumplimiento para transferencias reguladas. Un estándar es una arquitectura de referencia, no prueba del estado de una emisión.</p>
+<h3>Pinata</h3>
+<p>Actúa como servicio gestionado para mantener archivos disponibles. El estado de pinning pertenece al servicio y debe observarse independientemente de tener un CID.</p>
 </article>
 <article class="concept-card">
-<h3>DIR y análisis de mercado</h3>
-<p>El Documento de Información Relevante delimita obligaciones, riesgos y reglas de la oferta. Las reservas de pools, órdenes y eventos ayudan a evaluar si existe una salida practicable para una posición.</p>
+<h3>Gateway HTTP</h3>
+<p>Permite acceder desde un navegador convencional. Traduce una solicitud por contenido a una respuesta web y participa en el rendimiento, disponibilidad y observabilidad del acceso.</p>
+</article>
+<article class="concept-card">
+<h3>Web Crypto</h3>
+<p>Utilizamos SHA-256 del navegador para cálculos locales. TextEncoder convierte las cadenas a UTF-8 y un codificador base32 expresa los bytes del CIDv1.</p>
 </article>
 </div>
 </section>
@@ -149,153 +142,182 @@
 <h2 id="desarrollo-title">Desarrollo del laboratorio</h2>
 </div>
 <article class="subsection">
-<h3>01 / Resolver la identidad</h3>
-<p>El identificador mínimo de un token EVM es la pareja red y dirección contractual. Dos contratos pueden compartir nombre, símbolo e incluso logotipo. El procedimiento consiste en partir de la fuente oficial del proyecto, contrastar la dirección con un explorador y revisar que el historial concuerde. Si aparece una dirección únicamente en un agregador, no la elevamos a identidad confirmada. En JDcoin no contamos con esa vinculación y por ello el análisis específico permanece indeterminado.</p>
-<p>En MMLTI1 la ficha de TOHKN anuncia Polygon y ERC-3643. No identificamos en la fuente consultada una dirección contractual que permita leer su implementación. Conservamos esa distinción: blockchain declarada no equivale a despliegue inspeccionado. El ticker MMLTI1 identifica la emisión documental; los campos de contrato y facultades activas siguen sin confirmación on-chain.</p>
+<h3>01 / Fijar el objeto y sus bytes</h3>
+<p>El archivo de ejemplo contiene únicamente un saludo, el nombre ficticio de un venture y una versión. No incluye personas, contactos, documentos de identidad ni identificadores de clientes. La representación elegida es compacta, UTF-8 sin BOM y sin salto de línea final. Esos detalles forman parte del experimento porque el hash opera sobre bytes y no sobre una interpretación visual del JSON.</p>
+<figure class="code-block">
+<figcaption>
+<span>venture-hello.json · archivo real incluido</span>
+<span>JSON</span>
+</figcaption>
+<pre>
+<code data-language="JSON">{"venture":"Aurora","mensaje":"Hola, Web3","version":1}</code>
+</pre>
+</figure>
+<p>Dos documentos con las mismas propiedades pueden producir hashes diferentes si cambia el orden de las claves, la sangría o un salto de línea. La igualdad semántica de JSON no asegura igualdad binaria. Para nuestros resultados comparamos los bytes exactos del archivo incluido con una cadena canónica declarada en el código, evitando depender de cómo un editor reformatea la vista.</p>
 </article>
 <article class="subsection">
-<h3>02 / Reconstruir la superficie administrativa</h3>
+<h3>02 / Construir y entender el CID</h3>
+<p>La representación usada en esta demostración es un único bloque raw pequeño. Construimos CIDv1 con los bytes 0x01 para versión, 0x55 para codec raw y el multihash 0x12 0x20 para SHA-256 de treinta y dos bytes. La forma textual agrega el prefijo b de base32. Es un CID calculado realmente sobre el fixture local; no afirmamos que otros nodos posean ese bloque.</p>
+<figure class="code-block">
+<figcaption>
+<span>Cálculo local · esquema reducido</span>
+<span>JavaScript</span>
+</figcaption>
+<pre>
+<code data-language="JavaScript">const bytes = new TextEncoder().encode(original);
+const digest = new Uint8Array(
+  await crypto.subtle.digest('SHA-256', bytes)
+);
+const cidBytes = new Uint8Array([1, 0x55, 0x12, 32, ...digest]);
+// base32 codifica sin padding; "b" identifica la base.
+const cid = 'b' + base32(cidBytes);</code>
+</pre>
+</figure>
+<p>Para un archivo grande o una raíz UnixFS, el multihash suele describir el bloque raíz del DAG, no el hash directo de todo el archivo. El codec, la división en bloques y el formato importan. Mantener contenido y parámetros de importación es parte de la reproducibilidad. Esta distinción está documentada en <a href="https://docs.ipfs.tech/concepts/content-addressing/" target="_blank" rel="noopener">IPFS: identificadores de contenido</a>.</p>
+</article>
 <figure class="diagram">
 <div class="flow">
 <div class="flow-node">
 <span class="node-index">01</span>
-<strong>Fuente oficial</strong>
-<small>Red y dirección vinculadas</small>
+<strong>b</strong>
+<small>Representación base32</small>
 </div>
 <span class="flow-arrow" aria-hidden="true">→</span>
 <div class="flow-node">
 <span class="node-index">02</span>
-<strong>Explorador</strong>
-<small>Bytecode y código verificado</small>
+<strong>01 + 55</strong>
+<small>Versión 1 y codec raw</small>
 </div>
 <span class="flow-arrow" aria-hidden="true">→</span>
 <div class="flow-node">
 <span class="node-index">03</span>
-<strong>Implementación</strong>
-<small>Proxy, roles y módulos</small>
+<strong>12 + 20</strong>
+<small>SHA-256 y longitud</small>
 </div>
 <span class="flow-arrow" aria-hidden="true">→</span>
 <div class="flow-node">
 <span class="node-index">04</span>
-<strong>Estado</strong>
-<small>Lecturas y eventos</small>
+<strong>Digest</strong>
+<small>32 bytes del bloque</small>
 </div>
 </div>
-<figcaption>Ruta conceptual para contrastar declaraciones con comportamiento.</figcaption>
+<figcaption>Anatomía del CIDv1 raw utilizado en esta página.</figcaption>
 </figure>
-<p>En un explorador EVM revisamos la pestaña de contrato, el compilador, los argumentos de construcción y la correspondencia entre código y bytecode. Si el token es un proxy, estudiamos también la implementación y la autoridad que puede actualizarla. Un código verificado demuestra correspondencia de compilación bajo las condiciones del explorador; no certifica ausencia de vulnerabilidades ni legitimidad del negocio.</p>
-<p>Para mint preguntamos quién puede aumentar la oferta y si existe un límite efectivo. Para pause examinamos el alcance del bloqueo y quién puede levantarlo. Para transferencias revisamos listas de elegibilidad, congelamiento, módulos de compliance y rutas de transferencia forzada. Un administrador puede tener una facultad legítima para cumplimiento y, simultáneamente, constituir un punto de concentración de poder.</p>
+<article class="subsection">
+<h3>03 / Incorporar, conservar y resolver</h3>
+<p>En un nodo IPFS local, el procedimiento de referencia incorpora el archivo pequeño con parámetros explícitos. Si conserva los mismos bytes y produce una única hoja raw como raíz, el CID coincide con el cálculo de esta página. No ejecutamos estos comandos en una red IPFS en esta entrega: mostramos el procedimiento completo y explicamos cómo leer su salida.</p>
+<figure class="code-block">
+<figcaption>
+<span>Procedimiento de referencia · IPFS local</span>
+<span>Shell</span>
+</figcaption>
+<pre>
+<code data-language="Shell"># Archivo pequeño, sin directorio contenedor.
+ipfs add --cid-version=1 --raw-leaves=true venture-hello.json
+# Mantener el bloque localmente una vez identificado.
+ipfs pin add "$CID"
+ipfs pin ls "$CID"
+# La descarga de referencia conserva bytes, no una vista JSON.
+curl --fail --location "$GATEWAY/ipfs/$CID" --output recuperado.json</code>
+</pre>
+</figure>
+<p>El pin local protege de la recolección de basura de ese nodo. Un servicio remoto agrega otra responsabilidad de conservación. En Pinata se selecciona almacenamiento público IPFS, se carga el mismo archivo y se comprueba el CID y el estado de disponibilidad informado por el servicio. Un identificador de carga, la aceptación de una solicitud y una recuperación correcta son estados distintos. Ningún token de API forma parte de los archivos de esta web.</p>
+<p>La solicitud de gateway utiliza la ruta /ipfs/CID o un subdominio equivalente. Un HTTP 200 indicaría una respuesta exitosa, pero no demuestra por sí solo que los bytes sean correctos. Un error puede reflejar demora de descubrimiento, ausencia de proveedores, límites del gateway o contenido no disponible. Verificar el digest permite separar integridad del funcionamiento del transporte.</p>
 </article>
 <figure class="code-block">
 <figcaption>
-<span>Lecturas de auditoría · esquema de llamadas, sin dirección atribuida</span>
-<span>JavaScript</span>
+<span>Respuesta de gateway · salida ilustrativa, sin consulta remota</span>
+<span>HTTP</span>
 </figcaption>
 <pre>
-<code data-language="JavaScript">// Se aplica únicamente después de resolver red y contrato.
-const oferta = await token.totalSupply();
-const precision = await token.decimals();
-// La ABI concreta determina qué consultas existen.
-const detenido = await token.paused();
-const registro = await token.identityRegistry();
-const reglas = await token.compliance();
-// Revisar también roles, proxy y eventos administrativos.
-// Estas llamadas no se ejecutaron contra JDcoin ni MMLTI1.</code>
+<code data-language="HTTP">HTTP/1.1 200 OK
+Content-Type: application/json
+
+{"venture":"Aurora","mensaje":"Hola, Web3","version":1}</code>
 </pre>
 </figure>
 <article class="subsection">
-<h3>03 / Separar valoración y posibilidad de venta</h3>
-<p>Capitalización significa precio de referencia multiplicado por oferta circulante. FDV emplea una oferta más amplia, habitualmente máxima o total según el proveedor. Ninguna medida equivale al dinero depositado en un pool. Para una moneda negociada en AMM, las reservas y la fórmula de intercambio determinan cuánto deteriora el precio una venta. Para un instrumento de deuda con restricciones, el nominal autorizado describe tamaño de la emisión y no capitalización de mercado.</p>
-<p>La métrica vendedores en veinticuatro horas exige una ventana explícita y una definición. Contar direcciones únicas con operaciones de venta no equivale a contar personas, pues un operador puede usar múltiples wallets y un router puede agrupar actividades. Excluir transferencias internas y reconocer la dirección del pool evita confundir movimiento con venta. Sin identidad contractual, no existe una consulta defendible para JDcoin; sin mercado secundario comprobado, no asignamos vendedores a MMLTI1.</p>
-</article>
-<article class="subsection">
-<h3>04 / Leer derechos y restricciones</h3>
-<p>La ficha de MMLTI1 presenta un derecho de crédito frente a MultiMoney, valor de referencia de 100 dólares por token, tasa anual fija de 6,20 % y plazo de veinticuatro meses; anuncia un primer tramo de hasta dos millones de dólares. También declara restricciones de elegibilidad y un período de comercialización de ciento ochenta días. Estos datos pertenecen a la descripción oficial de la oferta, cuya documentación DIR prevalece según la propia ficha. <a href="https://www.tohkn.com/es/issuances/mmlti1" target="_blank" rel="noopener">Fuente: emisión MMLTI1 de TOHKN</a>.</p>
-<p>No presentamos una lectura completa de anexos DIR ni una certificación regulatoria independiente. El análisis documental explica cómo relacionar las cláusulas sobre pagos, vencimiento y negociación con las capacidades del token. Si una restricción se aplica en la plataforma pero no en el contrato, esa diferencia cambia la confianza requerida. Si existe un módulo que puede modificarse, importa quién gobierna la modificación y cómo se comunica al titular.</p>
-</article>
+<h3>04 / Aplicar STORAGE.md</h3>
+<p>Nuestro venture ficticio publica manuales y demostraciones que toleran replicación pública. Conserva contratos de clientes y registros internos en almacenamiento con control de acceso, vencimientos y auditoría. Excluye secretos y datos personales de cualquier publicación permanente. La clasificación es una decisión previa: cifrar un documento no garantiza borrado futuro cuando un tercero conserva el ciphertext y eventualmente obtiene la clave.</p>
 <div class="table-scroll">
 <table>
-<caption>Comparación sin sustitución de identidad</caption>
+<caption>Matriz de almacenamiento aplicada al venture</caption>
 <thead>
 <tr>
-<th scope="col">Dimensión</th>
-<th scope="col">JDcoin solicitada</th>
-<th scope="col">MMLTI1 / TOHKN</th>
+<th scope="col">Clase</th>
+<th scope="col">Ejemplo</th>
+<th scope="col">Destino</th>
+<th scope="col">Durabilidad / responsable</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th scope="row">Ticker y blockchain</th>
-<td>Ticker y red no resueltos</td>
-<td>MMLTI1; Polygon declarada</td>
+<th scope="row">Público y estable</th>
+<td>Manual técnico y JSON de prueba</td>
+<td>IPFS público con pinning</td>
+<td>Revisión semestral / documentación</td>
 </tr>
 <tr>
-<th scope="row">Contrato inteligente</th>
-<td>No atribuible inequívocamente</td>
-<td>Dirección no confirmada en esta revisión</td>
+<th scope="row">Público y temporal</th>
+<td>Anuncio con vigencia breve</td>
+<td>Web convencional</td>
+<td>Vence al terminar campaña / comunicación</td>
 </tr>
 <tr>
-<th scope="row">Capitalización</th>
-<td>No calculable con identidad ambigua</td>
-<td>Nominal de oferta ≠ capitalización</td>
+<th scope="row">Interno o personal</th>
+<td>Expedientes de clientes</td>
+<td>Almacenamiento privado con acceso</td>
+<td>Plazo justificado / responsable de datos</td>
 </tr>
 <tr>
-<th scope="row">Liquidez y vendedores / 24 h</th>
-<td>Sin métricas atribuibles</td>
-<td>Sin métricas secundarias verificadas</td>
-</tr>
-<tr>
-<th scope="row">Emisión</th>
-<td>Fair-launch usado solo como modelo comparativo</td>
-<td>Deuda; oferta documentada</td>
-</tr>
-<tr>
-<th scope="row">Mint / pause / límites</th>
-<td>Facultades indeterminadas</td>
-<td>Estándar anunciado permite controles; despliegue no inspeccionado</td>
-</tr>
-<tr>
-<th scope="row">Documentación DIR</th>
-<td>No localizada para el activo solicitado</td>
-<td>Enlazada por el emisor; no auditada integralmente</td>
+<th scope="row">Secreto</th>
+<td>Credenciales y claves privadas</td>
+<td>Gestor de secretos</td>
+<td>Rotación y revocación / seguridad</td>
 </tr>
 </tbody>
 </table>
 </div>
+<p>STORAGE.md establece dos copias para documentos públicos estables, comprobaciones periódicas de recuperación y presupuesto de conservación. La duración de un pin comercial depende de la cuenta y las condiciones contratadas. Eliminar un pin reduce nuestra participación en la conservación; no envía una orden de borrado a nodos ajenos ni retira capturas, cachés o copias descargadas.</p>
+</article>
 </section>
 <section id="interactivo" class="report-section interactive-section" aria-labelledby="interactivo-title">
 <div class="section-heading">
 <span class="section-index">interactivo</span>
-<h2 id="interactivo-title">Panel de riesgos y alcance documental</h2>
+<h2 id="interactivo-title">Una ruta, cuatro decisiones</h2>
 </div>
-<p>Seleccionamos una dimensión para examinar qué afirmaciones permite la información disponible. La visualización representa estados de revisión, sin asignar scores de la rúbrica S15.</p>
-<div class="audit-console">
-<div class="risk-controls" role="group" aria-label="Dimensión de riesgo">
-<button data-risk="identidad" aria-pressed="true">Identidad</button>
-<button data-risk="control" aria-pressed="false">Control</button>
-<button data-risk="mercado" aria-pressed="false">Mercado</button>
-<button data-risk="derechos" aria-pressed="false">Derechos</button>
+<p class="note">SHA-256 y CID se calculan realmente en tu navegador. El flujo de Pinata y gateway es un modelo didáctico; no realiza solicitudes a servicios externos.</p>
+<div class="ipfs-lab">
+<div class="pipeline" role="group" aria-label="Etapas del almacenamiento">
+<button data-stage="0" aria-pressed="true">01<br>Archivo</button>
+<span aria-hidden="true">→</span>
+<button data-stage="1" aria-pressed="false">02<br>CID</button>
+<span aria-hidden="true">→</span>
+<button data-stage="2" aria-pressed="false">03<br>Pinata</button>
+<span aria-hidden="true">→</span>
+<button data-stage="3" aria-pressed="false">04<br>Gateway</button>
 </div>
-<div class="risk-output" aria-live="polite">
-<h3 id="risk-title">Identidad / atribución</h3>
-<p id="risk-text">JDcoin no dispone de una identificación inequívoca en este informe. MMLTI1 tiene ficha de emisión, pero no una dirección inspeccionada. La diferencia es documental y no prueba seguridad contractual.</p>
+<div class="stage-readout" aria-live="polite">
+<h3 id="stage-title">Archivo / bytes exactos</h3>
+<p id="stage-text">La codificación y los saltos de línea forman parte del contenido.</p>
 </div>
-<figure class="coverage-chart">
-<figcaption>Mapa de alcance · estados documentales, sin puntuación</figcaption>
-<div class="status-row">
-<strong>JDcoin</strong>
-<span>Identidad no resuelta</span>
-<span>Contrato no atribuible</span>
-<span>Mercado no atribuible</span>
+<div class="variant-controls" role="group" aria-label="Variante de archivo">
+<button data-variant="original" aria-pressed="true">JSON original</button>
+<button data-variant="modificado" aria-pressed="false">Cambiar versión a 2</button>
 </div>
-<div class="status-row">
-<strong>MMLTI1</strong>
-<span class="documented">Ficha consultada</span>
-<span>Contrato no inspeccionado</span>
-<span class="documented">Derechos declarados</span>
-</div>
-<p>Rúbrica de tokens de 10 puntos: requiere consultar S15. No se proporcionaron sus criterios; no inventamos dimensiones, pesos ni scores para ninguno de los activos.</p>
-</figure>
+<pre class="data-output">
+<code id="json-output">Calculando representación local…</code>
+</pre>
+<dl class="hash-results">
+<dt>SHA-256 calculado</dt>
+<dd id="hash-output">Cálculo en curso</dd>
+<dt>CIDv1 raw calculado</dt>
+<dd id="cid-output">Cálculo en curso</dd>
+<dt>Comparación con archivo local</dt>
+<dd id="comparison-output" aria-live="polite">Leyendo venture-hello.json…</dd>
+</dl>
+<button id="pin-toggle" aria-pressed="true">Modelo: pin activo</button>
+<p id="pin-output" aria-live="polite">Una copia retenida aumenta disponibilidad. No garantiza permanencia universal.</p>
 </div>
 </section>
 <section id="resultados" class="report-section " aria-labelledby="resultados-title">
@@ -303,35 +325,29 @@ const reglas = await token.compliance();
 <span class="section-index">resultados</span>
 <h2 id="resultados-title">Resultados e interpretación</h2>
 </div>
-<p>El resultado principal es una comparación con niveles de certeza explícitos. Pudimos consultar una ficha oficial para MMLTI1 y ubicar su marco declarado. No resolvimos inequívocamente la JDcoin solicitada. Por esa razón no publicamos precios, contratos, capitalizaciones ni vendedores asociados a homónimos. La tabla distingue desconocimiento de inexistencia: una métrica no verificable no demuestra que no haya mercado.</p>
-<p>La rúbrica de evaluación de los tokens sobre diez puntos pertenece a S15 y es distinta de la evaluación general del laboratorio. Requiere consultar S15: sus criterios no se proporcionaron y no asignamos puntuaciones inventadas. El panel compara estados documentales con un criterio de atribución uniforme. MEMO.md desarrolla la comparación en un texto equivalente aproximadamente a dos páginas; las notas de presentaciones de compañeros no se fabrican porque no se proporcionaron presentaciones.</p>
+<p>La página calcula SHA-256 del documento y un CIDv1 raw válido para esos bytes. Además recupera venture-hello.json desde el mismo Live Server y compara su contenido binario con el objeto declarado. Esa recuperación es local y verificable; no se presenta como descarga desde Pinata. Al elegir versión 2 cambia un byte relevante del JSON y obtenemos un hash y un CID diferentes.</p>
+<p>El resultado prueba la relación entre bytes e identidad dentro del codec elegido. No prueba que un proveedor haya almacenado el objeto. La respuesta HTTP ilustrativa muestra la estructura esperada de un gateway, mientras que el control de pin explica por qué una copia administrada ayuda a la disponibilidad. Mantener ese límite permite interpretar correctamente tanto una comprobación exitosa como una falla de transporte.</p>
 <figure class="diagram">
 <div class="flow">
 <div class="flow-node">
 <span class="node-index">01</span>
-<strong>Documento</strong>
-<small>Define derechos y obligaciones</small>
+<strong>Integridad</strong>
+<small>¿Recibimos los bytes esperados?</small>
 </div>
 <span class="flow-arrow" aria-hidden="true">→</span>
 <div class="flow-node">
 <span class="node-index">02</span>
-<strong>Contrato</strong>
-<small>Ejecuta reglas programadas</small>
+<strong>Disponibilidad</strong>
+<small>¿Existe una copia accesible ahora?</small>
 </div>
 <span class="flow-arrow" aria-hidden="true">→</span>
 <div class="flow-node">
 <span class="node-index">03</span>
-<strong>Operador</strong>
-<small>Gestiona accesos y cambios</small>
-</div>
-<span class="flow-arrow" aria-hidden="true">→</span>
-<div class="flow-node">
-<span class="node-index">04</span>
-<strong>Mercado</strong>
-<small>Permite o limita la salida</small>
+<strong>Persistencia</strong>
+<small>¿Quién sostiene esa copia mañana?</small>
 </div>
 </div>
-<figcaption>Dos fuentes de confianza que deben contrastarse.</figcaption>
+<figcaption>Tres preguntas independientes para interpretar un resultado.</figcaption>
 </figure>
 </section>
 <section id="analisis" class="report-section " aria-labelledby="analisis-title">
@@ -340,13 +356,12 @@ const reglas = await token.compliance();
 <h2 id="analisis-title">Análisis crítico</h2>
 </div>
 <article class="subsection">
-<h3>Fair-launch y emisión regulada</h3>
-<p>Fair-launch describe una aspiración de acceso inicial sin privilegios de asignación; no es una propiedad que pueda deducirse de un nombre. Para sostenerla examinaríamos distribución inicial, reservas del equipo, bots, acceso temporal y concentración posterior. Un lanzamiento abierto puede producir una distribución muy desigual. La renuncia de ownership tampoco elimina poderes alojados en contratos auxiliares, liquidez controlada o mecanismos de actualización.</p>
-<p>En una emisión regulada la elegibilidad y las restricciones pueden ser parte de la finalidad del instrumento. La promesa relevante consiste en derechos exigibles y procedimientos definidos, no necesariamente libre transferencia. La supervisión no garantiza liquidez inmediata ni cumplimiento económico del deudor. Comparamos gobernanza, capacidad de cambio, estructura de negociación y obligación subyacente sin convertir un modelo en sustituto de una investigación individual.</p>
+<h3>Publicación y eliminación</h3>
+<p>El contenido público puede ser descubierto, copiado y redistribuido. Eliminar nuestro archivo local y cancelar un servicio no recupera las copias de terceros. El riesgo aumenta cuando un dato adquiere significado más tarde: un alias inocuo puede vincularse con una persona mediante otra base. Por ello excluimos datos personales incluso cuando el ejercicio solo necesita una demostración pequeña.</p>
 </article>
 <article class="subsection">
-<h3>Límites de la conclusión</h3>
-<p>El riesgo crediticio exige información financiera y términos completos; el riesgo de mercado requiere transacciones y profundidad; el riesgo contractual necesita una dirección verificable. Ninguna capa sustituye a las otras. Nuestra conclusión académica es que la trazabilidad de identidad constituye una condición previa para el análisis cuantitativo y que las afirmaciones del emisor deben conservar su atribución hasta ser contrastadas.</p>
+<h3>Dependencia operacional</h3>
+<p>Un gateway mejora usabilidad pero incorpora observación de solicitudes, políticas de acceso y límites propios. La aplicación puede prever gateways alternativos y verificar contenido, aunque eso requiere diseño explícito. También conviene reconocer que el pinning puede concentrarse en pocos proveedores: una arquitectura distribuida puede tener una operación frágil si depende de una sola cuenta. Nuestro diseño combina clasificación previa, copias y comprobaciones de recuperación en lugar de asumir disponibilidad por la existencia de un CID.</p>
 </article>
 </section>
 <section id="rubrica" class="report-section " aria-labelledby="rubrica-title">
@@ -357,7 +372,7 @@ const reglas = await token.compliance();
 <p class="note">Criterios y porcentajes originales proporcionados para este laboratorio. La columna de alcance describe lo presentado, sin asignar una calificación ni acreditar ejecuciones externas.</p>
 <div class="table-scroll">
 <table>
-<caption>Rúbrica académica original · laboratorio 13</caption>
+<caption>Rúbrica académica original · laboratorio 15</caption>
 <thead>
 <tr>
 <th scope="col">Criterio</th>
@@ -367,29 +382,29 @@ const reglas = await token.compliance();
 </thead>
 <tbody>
 <tr>
-<th scope="row">Kickoff memecoin documentado</th>
+<th scope="row">CID de artefacto sin datos personales generado</th>
 <td>20%</td>
-<td>Identidad ambigua de JDcoin documentada; no se sustituyen homónimos.</td>
+<td>CIDv1 raw calculado localmente sobre el JSON incluido.</td>
 </tr>
 <tr>
-<th scope="row">Emisión TOHKN: contrato, funcionalidad on-chain y DIR</th>
-<td>30%</td>
-<td>Fuente de emisión y metodología de contraste; sin inspección de un contrato atribuido ni lectura integral del DIR.</td>
+<th scope="row">Pin activo en Pinata o servicio equivalente</th>
+<td>20%</td>
+<td>Procedimiento y modelo ilustrativo; pin remoto no ejecutado.</td>
 </tr>
 <tr>
-<th scope="row">Scores de rúbrica de 10 puntos aplicados a ambos tokens</th>
+<th scope="row">Resolución mediante gateway HTTP</th>
 <td>25%</td>
-<td>Requiere consultar S15: no disponemos de sus criterios y no fabricamos scores.</td>
+<td>Respuesta de referencia; recuperación local comprobable, sin gateway remoto.</td>
 </tr>
 <tr>
-<th scope="row">Memo comparativo de aproximadamente dos páginas</th>
-<td>20%</td>
-<td>MEMO.md desarrolla la comparación y sus límites.</td>
+<th scope="row">STORAGE.md con clasificación de datos y políticas de almacenamiento</th>
+<td>25%</td>
+<td>Documento incluido con sensibilidad, durabilidad y responsables.</td>
 </tr>
 <tr>
-<th scope="row">Notas de presentación de compañeros</th>
-<td>5%</td>
-<td>No se proporcionaron presentaciones; no se atribuyen observaciones a compañeros.</td>
+<th scope="row">Comentarios de aprendizaje</th>
+<td>10%</td>
+<td>Párrafo desarrollado en primera persona del plural.</td>
 </tr>
 </tbody>
 <tfoot>
@@ -401,7 +416,7 @@ const reglas = await token.compliance();
 </tfoot>
 </table>
 </div>
-<p class="note">Restricciones aplicadas: JDcoin sin datos de homónimos; sin scores fabricados de S15 ni notas atribuidas a compañeros. No se proporcionó texto adicional de penalizaciones; no asignamos deducciones ni sanciones inventadas.</p>
+<p class="note">Restricciones aplicadas: contenido de prueba, ausencia de secretos y atribución explícita de resultados. No se proporcionó texto adicional de penalizaciones; no asignamos deducciones ni sanciones inventadas.</p>
 </section>
 <section id="conclusiones" class="report-section " aria-labelledby="conclusiones-title">
 <div class="section-heading">
@@ -409,10 +424,10 @@ const reglas = await token.compliance();
 <h2 id="conclusiones-title">Conclusiones</h2>
 </div>
 <ol class="conclusions">
-<li>La identificación por nombre resulta insuficiente para auditar un token. Al preservar la incertidumbre de JDcoin evitamos una comparación numérica engañosa y establecimos un límite metodológico justificable.</li>
-<li>Los derechos económicos y las reglas de transferencia pertenecen a capas distintas. Una ficha documental explica la oferta, mientras que roles, módulos y estados requieren inspeccionar una implementación identificada.</li>
-<li>La liquidez se evalúa por capacidad de ejecución y restricciones de salida. Un monto autorizado o una capitalización elevada no garantizan que podamos vender una posición sin pérdida significativa.</li>
-<li>El grado de documentación permite formular mejores preguntas, pero no garantiza solvencia. La auditoría combina identidad, contrato, mercado y obligaciones sin reemplazar ninguna de esas capas por una puntuación única.</li>
+<li>La identidad por contenido depende de bytes y representación. El experimento con dos versiones demuestra por qué un cambio mínimo modifica el CID y por qué los parámetros de importación deben documentarse.</li>
+<li>El CID identifica, mientras que el pinning conserva. Separar ambas funciones evita interpretar un identificador válido como garantía de una descarga disponible o de permanencia ilimitada.</li>
+<li>Una recuperación necesita comprobar transporte e integridad. La comparación local reproduce la segunda comprobación sin atribuir al gateway una operación que no se realizó.</li>
+<li>La política del venture determina qué puede publicarse. Seleccionar contenidos estables y no sensibles reduce riesgos que ninguna promesa de eliminación distribuida puede resolver.</li>
 </ol>
 </section>
 <section id="aprendizajes" class="report-section " aria-labelledby="aprendizajes-title">
@@ -420,28 +435,29 @@ const reglas = await token.compliance();
 <span class="section-index">aprendizajes</span>
 <h2 id="aprendizajes-title">Aprendizajes</h2>
 </div>
-<p>Aprendimos a examinar un token desde su identidad hasta sus derechos y controles, separando los datos atribuibles de las capacidades hipotéticas. Comprendimos que una auditoría rigurosa puede producir incertidumbres explícitas y que esa precisión mejora la interpretación de las cifras, los riesgos y las declaraciones comerciales.</p>
+<p>Aprendimos a relacionar bytes, hashing y direccionamiento por contenido, y comprendimos que disponibilidad y persistencia requieren decisiones operativas adicionales. Al elaborar STORAGE.md reconocimos que la clasificación de datos debe preceder a la publicación y que retirar un pin no elimina las copias distribuidas.</p>
 </section>
 <section id="documentacion" class="report-section " aria-labelledby="documentacion-title">
 <div class="section-heading">
 <span class="section-index">documentacion</span>
 <h2 id="documentacion-title">Documentación y fuentes</h2>
 </div>
-<a class="doc-link" href="README.md">Leer el README del laboratorio 13 ↗</a>
-<a class="doc-link" href="MEMO.md">Leer MEMO.md comparativo ↗</a>
+<a class="doc-link" href="README.md">Leer el README del laboratorio 15 ↗</a>
+<a class="doc-link" href="STORAGE.md">Consultar STORAGE.md ↗</a>
+<a class="doc-link" href="venture-hello.json" download>Descargar venture-hello.json ↓</a>
 <p>Las referencias fundamentan los protocolos y las declaraciones atribuidas. Los cálculos locales, modelos didácticos y límites de observación se explican junto a cada resultado.</p>
 <ul class="sources">
 <li>
-<a href="https://www.tohkn.com/es/issuances/mmlti1" target="_blank" rel="noopener noreferrer">Ficha oficial de MMLTI1 y enlaces a DIR ↗</a>
+<a href="https://docs.ipfs.tech/concepts/content-addressing/" target="_blank" rel="noopener noreferrer">IPFS · identificadores de contenido ↗</a>
 </li>
 <li>
-<a href="https://eips.ethereum.org/EIPS/eip-3643" target="_blank" rel="noopener noreferrer">ERC-3643 · estándar para tokens regulados ↗</a>
+<a href="https://docs.ipfs.tech/concepts/persistence/" target="_blank" rel="noopener noreferrer">IPFS · persistencia y pinning ↗</a>
 </li>
 <li>
-<a href="https://eips.ethereum.org/EIPS/eip-20" target="_blank" rel="noopener noreferrer">ERC-20 · interfaz de tokens fungibles ↗</a>
+<a href="https://docs.pinata.cloud/files/uploading-files" target="_blank" rel="noopener noreferrer">Pinata · carga de archivos ↗</a>
 </li>
 <li>
-<a href="https://docs.etherscan.io/contract-verification/introduction" target="_blank" rel="noopener noreferrer">Etherscan · verificación de contratos ↗</a>
+<a href="https://github.com/multiformats/cid" target="_blank" rel="noopener noreferrer">Multiformats · especificación CID ↗</a>
 </li>
 </ul>
 </section>
@@ -450,7 +466,7 @@ const reglas = await token.compliance();
 </main>
 <footer class="site-footer">
 <a href="../index.html">← Colección Web3 Labs</a>
-<p>Laboratorio 13 · Token Due Diligence · Sesión 15</p>
+<p>Laboratorio 15 · IPFS + Pinata · Sesión 18</p>
 <a href="#">Volver al inicio ↑</a>
 </footer>
 </body>
