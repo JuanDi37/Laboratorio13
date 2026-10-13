@@ -29,58 +29,14 @@ $$('code[data-language]').forEach(element => {
 });
 
 
-const original = '{"venture":"Aurora","mensaje":"Hola, Web3","version":1}';
-const modified = '{"venture":"Aurora","mensaje":"Hola, Web3","version":2}';
-const stages = [
-  ['Archivo / bytes exactos', 'UTF-8, sin BOM y sin salto final. Igualdad semántica de JSON no significa igualdad de bytes.'],
-  ['CID / identidad del bloque', 'El codec raw permite identificar este bloque pequeño directamente. Versión, codec y multihash también forman parte del CID.'],
-  ['Pinata / conservación', 'Modelo: un proveedor mantiene una copia. El CID no garantiza que esa copia exista ni que una cuenta la conserve indefinidamente.'],
-  ['Gateway / recuperación', 'Modelo: HTTP entrega contenido por CID. La comprobación real de esta página lee el fixture desde Live Server, no desde un gateway IPFS.']
-];
-$$('[data-stage]').forEach(button => button.addEventListener('click', () => {
-  press('[data-stage]', button); const [title, explanation] = stages[Number(button.dataset.stage)];
-  text('#stage-title', title); text('#stage-text', explanation);
+const risks = {
+  identidad: ['Identidad / atribución', 'JDcoin no dispone de una identificación inequívoca en este informe. MMLTI1 tiene ficha de emisión, pero no una dirección inspeccionada. La diferencia es documental y no prueba seguridad contractual.'],
+  control: ['Control / capacidad de cambiar reglas', 'Mint puede ampliar oferta; pause puede detener operaciones; una actualización puede cambiar la implementación. ERC-3643 describe controles posibles, pero no atribuimos roles activos a MMLTI1 sin inspeccionar el despliegue. Para JDcoin las facultades son indeterminadas.'],
+  mercado: ['Mercado / capacidad de salida', 'La capitalización no es una reserva disponible para vendedores. Las restricciones documentadas de una emisión pueden limitar negociación. Sin contratos y mercados identificados no se atribuyen liquidez ni vendedores de 24 horas a ninguno de los casos.'],
+  derechos: ['Derechos / obligación económica', 'MMLTI1 se presenta como un derecho de crédito frente al emisor. Ese derecho no equivale a propiedad accionaria ni a garantía de pago. La memecoin solicitada no tiene aquí una documentación atribuible. La comparación fair-launch es conceptual, no una propiedad confirmada de JDcoin.']
+};
+$$('[data-risk]').forEach(button => button.addEventListener('click', () => {
+  press('[data-risk]', button);
+  const [title, explanation] = risks[button.dataset.risk];
+  text('#risk-title', title); text('#risk-text', explanation);
 }));
-function base32(bytes) {
-  const alphabet = 'abcdefghijklmnopqrstuvwxyz234567';
-  let output = '', bits = 0, value = 0;
-  for (const byte of bytes) {
-    value = (value << 8) | byte; bits += 8;
-    while (bits >= 5) { bits -= 5; output += alphabet[(value >>> bits) & 31]; }
-    value &= (1 << bits) - 1;
-  }
-  if (bits) output += alphabet[(value << (5 - bits)) & 31];
-  return output;
-}
-let calculation = 0;
-async function showVariant(value) {
-  const operation = ++calculation;
-  text('#json-output', value);
-  try {
-    if (!crypto.subtle) throw new Error('Web Crypto requiere localhost o HTTPS. Abrimos esta página con Live Server.');
-    const bytes = new TextEncoder().encode(value);
-    const digest = new Uint8Array(await crypto.subtle.digest('SHA-256', bytes));
-    const response = await fetch('venture-hello.json', { cache: 'no-store' });
-    if (!response.ok) throw new Error('El archivo local no pudo recuperarse: HTTP ' + response.status);
-    const recovered = new Uint8Array(await response.arrayBuffer());
-    if (operation !== calculation) return;
-    text('#hash-output', [...digest].map(byte => byte.toString(16).padStart(2, '0')).join(''));
-    text('#cid-output', 'b' + base32(new Uint8Array([1, 0x55, 0x12, 32, ...digest])));
-    const equal = recovered.length === bytes.length && recovered.every((byte, index) => byte === bytes[index]);
-    text('#comparison-output', equal ? 'Coinciden los ' + bytes.length + ' bytes del archivo local. Recuperación real desde Live Server.' : 'No coinciden: la variante versión 2 difiere del fixture original. Recuperación local, sin gateway remoto.');
-  } catch (error) {
-    if (operation !== calculation) return;
-    text('#hash-output', 'Cálculo no disponible'); text('#cid-output', 'Cálculo no disponible');
-    text('#comparison-output', error.message);
-  }
-}
-$$('[data-variant]').forEach(button => button.addEventListener('click', () => {
-  press('[data-variant]', button); showVariant(button.dataset.variant === 'original' ? original : modified);
-}));
-$('#pin-toggle').addEventListener('click', () => {
-  const active = $('#pin-toggle').getAttribute('aria-pressed') !== 'true';
-  $('#pin-toggle').setAttribute('aria-pressed', String(active));
-  text('#pin-toggle', active ? 'Modelo: pin activo' : 'Modelo: pin retirado');
-  text('#pin-output', active ? 'Una copia retenida aumenta disponibilidad. No garantiza permanencia universal.' : 'Retirar nuestro pin elimina una obligación de conservación propia; otras copias y cachés pueden permanecer.');
-});
-showVariant(original);

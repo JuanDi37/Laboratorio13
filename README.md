@@ -1,30 +1,30 @@
-# Lab 15 — IPFS + Pinata
+# Lab 13 — Token Due Diligence
 
-Sesión 18.
+Sesión 15.
 
 ## Título y objetivo
 
-Comprender cómo un JSON no sensible obtiene una identidad por contenido, cómo se conserva y cómo se interpreta una recuperación.
+Comparar la referencia JDcoin con MMLTI1 mediante identidad, controles contractuales, derechos y mercado, conservando la atribución de cada dato.
 
 ## Instrucciones
 
-En este laboratorio trabajamos en Visual Studio Code para desarrollar un informe sobre almacenamiento descentralizado utilizando un archivo venture-hello.json sin datos personales y una política de almacenamiento aplicada a un venture. Definimos una representación exacta en UTF-8, calculamos su SHA-256 y construimos un CIDv1 con codec raw para un único bloque pequeño, dejando explícito que este cálculo local no equivale a una publicación en IPFS. Explicamos el procedimiento de incorporación del archivo con IPFS, la relación entre bloques, multihash y direccionamiento por contenido, y la necesidad de mantener parámetros consistentes para obtener identificadores reproducibles. Describimos cómo Pinata conserva una copia mediante pinning y cómo un gateway HTTP recupera contenido identificado por CID, diferenciando respuestas ilustrativas de una consulta realmente ejecutada. Implementamos una experiencia interactiva que recorre archivo, CID, Pinata y gateway, compara dos variantes predefinidas del JSON y verifica los bytes del archivo local recuperado. Elaboramos STORAGE.md con categorías de sensibilidad, responsables, durabilidad, revisión y eliminación, distinguiendo materiales apropiados para publicación pública de información que requiere almacenamiento convencional. Analizamos disponibilidad, persistencia, dependencia del proveedor y los límites de retirar copias distribuidas. Entregamos el HTML, CSS, JavaScript, JSON y README correspondientes, con diagramas, matriz de clasificación, resultados calculados en el navegador y conclusiones sobre integridad y gobierno de datos.
+En este laboratorio trabajamos en Visual Studio Code para analizar la memecoin de referencia JDcoin frente a MMLTI1, emisión de deuda presentada por TOHKN, construyendo un informe web independiente con HTML, CSS y JavaScript. Comenzamos por establecer la identidad de cada activo mediante ticker, blockchain y contrato, evitando asociar a JDcoin datos de monedas homónimas cuando no existe una vinculación inequívoca. Examinamos las declaraciones públicas de la emisión regulada, su documentación DIR y el estándar anunciado, y explicamos cómo contrastarlas con código verificado, implementaciones de proxies, roles y eventos en exploradores blockchain. Organizamos la comparación de capitalización, liquidez, vendedores únicos durante veinticuatro horas, mecanismos de emisión, facultades administrativas, mint, pause y restricciones de transferencia, diferenciando información documental, capacidades de un estándar y comprobaciones del contrato concreto. Conservamos la rúbrica general original y distinguimos la rúbrica de tokens de diez puntos de S15, cuyos criterios requieren consultar ese documento y no se inventan; el gráfico muestra estados documentales sin scores. Implementamos un panel interactivo para interpretar riesgos de identidad, control, mercado y cumplimiento, junto con diagramas de lectura del contrato y una tabla comparativa. Cerramos el trabajo explicando las diferencias entre fair-launch y emisión regulada, sus límites económicos y técnicos, y entregamos la página navegable, sus archivos de estilo e interacción y un README que documenta metodología, resultados y aprendizajes.
 
 ## Descripción del trabajo
 
-La visualización recorre cuatro etapas. Calculamos SHA-256 y CIDv1 raw; recuperamos el fixture desde Live Server para comparar bytes. El modelo de Pinata y gateway explica estados sin ejecutar servicios remotos. STORAGE.md establece responsables, durabilidad y reglas de retiro.
+Presentamos un dashboard de auditoría, una ruta de inspección en exploradores, una comparación financiera y un panel de riesgos. El gráfico muestra estados documentales sin scores. La rúbrica de tokens de diez puntos requiere consultar S15 y no se confunde con los porcentajes de evaluación general. MEMO.md desarrolla la comparación.
 
 ## Tecnologías
 
-IPFS, CIDv1, raw, multihash SHA-256, base32, Pinata, gateways HTTP y Web Crypto. La interfaz utiliza HTML5, CSS3 y JavaScript sin CDN.
+Exploradores EVM, ERC-20, ERC-3643, lectura de ABI, proxies, roles, documentación DIR y análisis de liquidez. HTML5, CSS3 y JavaScript implementan la presentación.
 
 ## Resultados
 
-El fixture produce un CID local reproducible; cambiar version de 1 a 2 modifica hash e identidad. La comparación del original con el archivo local coincide. No se afirma una publicación o un pin remoto. La política diferencia información pública estable, temporal, interna y secreta.
+La fuente oficial describe MMLTI1; no se inspeccionó una dirección contractual de la emisión. JDcoin permanece sin identidad inequívoca. No se atribuyen capitalización, liquidez o vendedores a homónimos. Se explican las facultades administrativas y los límites de cada modelo.
 
 ## Aprendizaje
 
-Aprendimos a relacionar bytes, hashing y direccionamiento por contenido, y comprendimos que disponibilidad y persistencia requieren decisiones operativas adicionales. Al elaborar STORAGE.md reconocimos que la clasificación de datos debe preceder a la publicación y que retirar un pin no elimina las copias distribuidas.
+Aprendimos a examinar un token desde su identidad hasta sus derechos y controles, separando los datos atribuibles de las capacidades hipotéticas. Comprendimos que una auditoría rigurosa puede producir incertidumbres explícitas y que esa precisión mejora la interpretación de las cifras, los riesgos y las declaraciones comerciales.
 
 ## Visualización
 
@@ -32,21 +32,21 @@ Abrimos la carpeta WEB3-LABS en Visual Studio Code. Con la extensión Live Serve
 
 ## Rúbrica original
 
-- CID de artefacto sin datos personales generado: 20%.
-- Pin activo en Pinata o servicio equivalente: 20%.
-- Resolución mediante gateway HTTP: 25%.
-- STORAGE.md con clasificación de datos y políticas de almacenamiento: 25%.
-- Comentarios de aprendizaje: 10%.
+- Kickoff memecoin documentado: 20%.
+- Emisión TOHKN: contrato, funcionalidad on-chain y DIR: 30%.
+- Scores de rúbrica de 10 puntos aplicados a ambos tokens: 25%.
+- Memo comparativo de aproximadamente dos páginas: 20%.
+- Notas de presentación de compañeros: 5%.
 
-Total: 100%. Los alcances y límites se describen en la tabla HTML; no se asignan calificaciones por ejecuciones no realizadas.
+Total: 100%. Los alcances y límites se describen en la tabla HTML; no se asignan calificaciones por ejecuciones no realizadas. La rúbrica de tokens de 10 puntos requiere consultar S15, cuyos criterios no están disponibles en esta entrega.
 
 ## Alcance académico
 
-Las simulaciones se identifican en pantalla; no representan conexiones, publicaciones ni transacciones externas. No se proporcionaron penalizaciones adicionales y no se inventan deducciones. Usamos contenido de prueba y no incluimos secretos.
+Las simulaciones se identifican en pantalla; no representan conexiones, publicaciones ni transacciones externas. No se proporcionaron penalizaciones adicionales y no se inventan deducciones. JDcoin sin datos de homónimos; sin scores fabricados de S15 ni notas atribuidas a compañeros.
 
 ## Fuentes primarias
 
-- [IPFS · identificadores de contenido](https://docs.ipfs.tech/concepts/content-addressing/)
-- [IPFS · persistencia y pinning](https://docs.ipfs.tech/concepts/persistence/)
-- [Pinata · carga de archivos](https://docs.pinata.cloud/files/uploading-files)
-- [Multiformats · especificación CID](https://github.com/multiformats/cid)
+- [Ficha oficial de MMLTI1 y enlaces a DIR](https://www.tohkn.com/es/issuances/mmlti1)
+- [ERC-3643 · estándar para tokens regulados](https://eips.ethereum.org/EIPS/eip-3643)
+- [ERC-20 · interfaz de tokens fungibles](https://eips.ethereum.org/EIPS/eip-20)
+- [Etherscan · verificación de contratos](https://docs.etherscan.io/contract-verification/introduction)
